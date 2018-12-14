@@ -4,12 +4,13 @@ import javax.persistence.*;
 
 @Entity
 public class City {
+    @Id
     private Long cityId;
     private String name;
     private String country;
     private String province;
 
-    @Id
+
     public Long getCityId() {
         return cityId;
     }
