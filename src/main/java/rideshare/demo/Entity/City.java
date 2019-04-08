@@ -7,9 +7,9 @@ public class City {
     @Id
     private Long cityId;
     private String name;
-    private String country;
+    private String county;
     private String province;
-
+    private Long population;
 
     public Long getCityId() {
         return cityId;
@@ -27,13 +27,12 @@ public class City {
         this.name = name;
     }
 
-
-    public String getCountry() {
-        return country;
+    public String getCounty() {
+        return county;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setCounty(String county) {
+        this.county = county;
     }
 
     public String getProvince() {
@@ -42,5 +41,24 @@ public class City {
 
     public void setProvince(String province) {
         this.province = province;
+    }
+
+    public Long getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(Long population) {
+        this.population = population;
+    }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "cityId=" + cityId +
+                ", name='" + name + '\'' +
+                ", county='" + county + '\'' +
+                ", province='" + province + '\'' +
+                ", population=" + population +
+                '}';
     }
 }

@@ -1,22 +1,21 @@
 package rideshare.demo.Entity;
 import javax.persistence.*;
-import java.util.Date;
+
 
 @Entity
 public class Place {
-    private Long localizationId;
+    private Long placeId;
     private City city;
     private String placeInfo;
-    private Date date;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getLocalizationId() {
-        return localizationId;
+    public Long getPlaceId() {
+        return placeId;
     }
 
-    public void setLocalizationId(Long localizationId) {
-        this.localizationId = localizationId;
+    public void setPlaceId(Long placeId) {
+        this.placeId = placeId;
     }
 
     @ManyToOne(cascade = CascadeType.MERGE)
@@ -28,19 +27,19 @@ public class Place {
         this.city = city;
     }
 
-    public String getPlaceOfMeeting() {
+    public String getPlaceInfo() {
         return placeInfo;
     }
 
-    public void setPlaceOfMeeting(String placeOfMeeting) {
-        this.placeInfo = placeOfMeeting;
+    public void setPlaceInfo(String placeInfo) {
+        this.placeInfo = placeInfo;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
+    @Override
+    public String toString() {
+        return
+                city.getName() +
+                ", '" + placeInfo + '\'' +
+                ' ';
     }
 }

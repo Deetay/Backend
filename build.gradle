@@ -25,12 +25,16 @@ repositories {
 
 
 dependencies {
+    // Use MySQL Connector-J
+    compile 'mysql:mysql-connector-java'
     compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.6.0'
     compile group: 'org.springframework.security', name: 'spring-security-jwt', version: '1.0.7.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-mail:2.0.1.RELEASE'
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation('org.springframework.boot:spring-boot-starter-security')
     implementation('org.springframework.boot:spring-boot-starter-web')
     runtimeOnly('com.h2database:h2')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     testImplementation('org.springframework.security:spring-security-test')
+
 }

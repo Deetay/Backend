@@ -1,28 +1,30 @@
 package rideshare.demo.Entity;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
 public class Ride {
-    private Long routeId;
+    private Long rideId;
     private Long ownerId;
     private String description;
     private Place from;
-    private Place destination;
+    private Place to;
     private Integer numberOfSeats;
     private Integer bookedSeats;
     private Double price;
+    private Date date;
     private List<Long> passengers;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getRouteId() {
-        return routeId;
+    public Long getRideId() {
+        return rideId;
     }
 
-    public void setRouteId(Long routeId) {
-        this.routeId = routeId;
+    public void setRideId(Long rideId) {
+        this.rideId = rideId;
     }
 
 
@@ -36,12 +38,12 @@ public class Ride {
     }
 
     @ManyToOne(cascade = CascadeType.ALL)
-    public Place getDestination() {
-        return destination;
+    public Place getTo() {
+        return to;
     }
 
-    public void setDestination(Place destination) {
-        this.destination = destination;
+    public void setTo(Place to) {
+        this.to = to;
     }
 
     public Integer getNumberOfSeats() {
@@ -82,6 +84,14 @@ public class Ride {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @ElementCollection
