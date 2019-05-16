@@ -9,15 +9,19 @@ import java.util.Properties;
 
 @Configuration
 public class EmailConfiguration {
-    @Value("lsar2019")
+    @Value("${EMAIL_PASSWORD}")
     String password;
+    
+    @Value("${EMAIL_LOGIN}")
+    String email;
+    
     @Bean
     public JavaMailSender emailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
-        mailSender.setUsername("letssharearide@gmail.com");
-        mailSender.setPassword("lsar2019");
+        mailSender.setUsername(email);
+        mailSender.setPassword(password);
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
         props.put("mail.smtp.auth", "true");
